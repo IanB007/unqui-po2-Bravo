@@ -33,9 +33,36 @@ class CounterTestCase {
 	
 	
 	@Test
-	public void testPares() {
+	public void testImpares() {
 		int cantidad = counter.contarNumerosImpares();
 		assertEquals(cantidad, 9);
 	}
+	
+	@Test
+	public void testPares() {
+		int cantidad = counter.contarNumerosPares();
+		assertEquals(cantidad, 1);
+	}
+	
+	@Test
+	public void contarMultiplos() {
+		int cantidad = counter.contarMultiplos(3);
+		assertEquals(cantidad, 2);
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
