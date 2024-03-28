@@ -49,4 +49,26 @@ public class Counter {
 		}
 		return cantMultiplos;
 	}
+
+	public int numeroConMasDigitosPares() {
+		//uso div y mov
+		//con div uso para sacar el numero evaluado, en un numero el de menor peso, el de la derecha del todo.
+		//con mod veo si es par
+		int numeroConMasDigitosParesActual = 0;
+		int cantParesDeNumeroActual = 0;
+		for (int numero:numeros) {
+			int digitosPares = 0;
+			while (numero != 0) {
+				if((numero % 2) == 0) {
+					digitosPares++;
+					numero = numero / 10;
+				}
+			}
+			if (digitosPares >  cantParesDeNumeroActual) {
+				cantParesDeNumeroActual = digitosPares;
+				numeroConMasDigitosParesActual = numero;
+			}
+		}
+		return numeroConMasDigitosParesActual;
+	}
 }

@@ -29,6 +29,8 @@ class CounterTestCase {
 		counter.agregarNumero(1);
 		counter.agregarNumero(1);
 		counter.agregarNumero(4);
+		counter.agregarNumero(8700);
+		counter.agregarNumero(1789);
 	}
 	
 	
@@ -41,7 +43,7 @@ class CounterTestCase {
 	@Test
 	public void testPares() {
 		int cantidad = counter.contarNumerosPares();
-		assertEquals(cantidad, 1);
+		assertEquals(cantidad, 2);
 	}
 	
 	@Test
@@ -50,6 +52,11 @@ class CounterTestCase {
 		assertEquals(cantidad, 2);
 	}
 
+	@Test
+	public void numeroConMasDigitosPares() {
+		int numero = counter.numeroConMasDigitosPares();
+		assertEquals(numero, 8700);
+	}
 }
 
 
