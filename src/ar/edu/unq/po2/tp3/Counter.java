@@ -58,11 +58,12 @@ public class Counter {
 		int cantParesDeNumeroActual = 0;
 		for (int numero:numeros) {
 			int digitosPares = 0;
-			while (numero != 0) {
-				if((numero % 2) == 0) {
+			int numeroAEvaluar = numero;
+			while (numeroAEvaluar != 0) {
+				if((numeroAEvaluar % 2) == 0) {
 					digitosPares++;
-					numero = numero / 10;
 				}
+				numeroAEvaluar = numeroAEvaluar / 10;
 			}
 			if (digitosPares >  cantParesDeNumeroActual) {
 				cantParesDeNumeroActual = digitosPares;

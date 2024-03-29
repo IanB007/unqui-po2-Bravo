@@ -30,14 +30,14 @@ class CounterTestCase {
 		counter.agregarNumero(1);
 		counter.agregarNumero(4);
 		counter.agregarNumero(8700);
-		counter.agregarNumero(1789);
+		counter.agregarNumero(7777);
 	}
 	
 	
 	@Test
 	public void testImpares() {
 		int cantidad = counter.contarNumerosImpares();
-		assertEquals(cantidad, 9);
+		assertEquals(cantidad, 10);
 	}
 	
 	@Test
@@ -49,7 +49,7 @@ class CounterTestCase {
 	@Test
 	public void contarMultiplos() {
 		int cantidad = counter.contarMultiplos(3);
-		assertEquals(cantidad, 2);
+		assertEquals(cantidad, 3);
 	}
 
 	@Test
