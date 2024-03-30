@@ -1,6 +1,8 @@
 package ar.edu.unq.po2.tp3;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class Counter {
 
@@ -57,19 +59,59 @@ public class Counter {
 		int numeroConMasDigitosParesActual = 0;
 		int cantParesDeNumeroActual = 0;
 		for (int numero:numeros) {
-			int digitosPares = 0;
-			int numeroAEvaluar = numero;
-			while (numeroAEvaluar != 0) {
+			int cantDigitosPares = cantidadDigitosPares(numero);
+			//int numeroAEvaluar = numero;
+			/*while (numeroAEvaluar != 0) {
 				if((numeroAEvaluar % 2) == 0) {
 					digitosPares++;
 				}
 				numeroAEvaluar = numeroAEvaluar / 10;
-			}
-			if (digitosPares >  cantParesDeNumeroActual) {
-				cantParesDeNumeroActual = digitosPares;
+			}*/
+			if (cantDigitosPares >  cantParesDeNumeroActual) {
+				cantParesDeNumeroActual = cantDigitosPares;
 				numeroConMasDigitosParesActual = numero;
 			}
 		}
 		return numeroConMasDigitosParesActual;
 	}
+	
+	//parte de numeroConMasDigitosPares
+	public int cantidadDigitosPares(int numeroAEvaluar) {
+		int digitosPares = 0;
+		while (numeroAEvaluar != 0) {
+			if((numeroAEvaluar % 2) == 0) {
+				digitosPares++;
+			}
+			numeroAEvaluar = numeroAEvaluar / 10;
+		}
+		return digitosPares;
+	}
+
+	public int multiploMasAltoEntre0Y1000(int x, int y) {
+		//condicion que no sea mayor a 1000 y que sea multiplo de x e y.
+		ArrayList<Integer> multiplosDeX = obtenerMultiplos(x, 1000); 
+		ArrayList<Integer> multiplosDeY = obtenerMultiplos(y, 1000);
+		ArrayList<Integer> multiplosDeXeY= new ArrayList<Integer>();
+		for(int numero:multiplosDeX) {
+			if(multiplosDeY.contains(numero) && (numero > 0 && numero < 1000)){
+					multiplosDeXeY.add(numero);
+				}
+		}
+		//si esta vacia la lista es porque no encontro multiplos en comun o estas fuera de rango.
+		if(multiplosDeXeY.isEmpty()) {
+			multiplosDeXeY.add(-1);
+		}
+		return Collections.max(multiplosDeXeY); // devuelve el maximo del array.
+	}
+
+	private ArrayList<Integer> obtenerMultiplos(int x, int cantidadDeMultiplos) {
+		ArrayList<Integer> multiplos = new ArrayList<Integer>();
+		for (int i = 0; i < cantidadDeMultiplos ; i++) {
+			multiplos.add(x * (i+1));
+		}
+		return multiplos;
+	}
+	
+	
+	
 }

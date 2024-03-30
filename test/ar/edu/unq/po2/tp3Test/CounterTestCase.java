@@ -57,6 +57,12 @@ class CounterTestCase {
 		int numero = counter.numeroConMasDigitosPares();
 		assertEquals(numero, 8700);
 	}
+	
+	@Test
+	public void multiploMasAltoEntre0Y1000EntreDosNumeros() {
+		int multiploMasAlto = counter.multiploMasAltoEntre0Y1000(3, 9);
+		assertEquals(multiploMasAlto, 999);
+	}
 }
 
 
