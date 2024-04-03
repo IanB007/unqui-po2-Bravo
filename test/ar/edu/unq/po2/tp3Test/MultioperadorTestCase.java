@@ -28,4 +28,18 @@ public class MultioperadorTestCase {
 		assertEquals(multioperador.dimension(), 5);
 	}
 	
+	@Test
+	public void restaDeNumerosEnArray() {
+		assertEquals(multioperador.restarNumeros(), -130);
+	}
+	
+	@Test
+	public void sumaDeNumerosEnArray() {
+		assertEquals(multioperador.sumarNumeros(), 150);
+	}
+	
+	@Test
+	public void multiplicacionDeNumerosEnArray() {
+		assertEquals(multioperador.multiplicarNumeros(), 12000000);
+	}
 }
