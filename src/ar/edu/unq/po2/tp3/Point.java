@@ -26,9 +26,20 @@ public class Point {
 	public double getY() {	
 		return y;
 	}
+	
 	public double getX() {
 		return x;
 	}
 	
+	public void moverAPunto(Point nuevoPunto) {
+		this.x = nuevoPunto.getX();
+		this.y = nuevoPunto.getY();
+	}
+	public void sumarConPunto(Point nuevoPunto) {
+		//podria ser this.x = x + nuevoPunto.getX();????
+		x = x + nuevoPunto.getX();
+		//podria ser this.y = y + nuevoPunto.getY();????
+		y = y + nuevoPunto.getY();
+	}
 	
 }
