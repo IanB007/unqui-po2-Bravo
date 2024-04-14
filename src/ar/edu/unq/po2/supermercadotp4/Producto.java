@@ -33,6 +33,6 @@ public class Producto {
 	}
 
 	public void aumentarPrecio(double d) {
-		precio = precio + d;
+		precio += d;
 	}
 }

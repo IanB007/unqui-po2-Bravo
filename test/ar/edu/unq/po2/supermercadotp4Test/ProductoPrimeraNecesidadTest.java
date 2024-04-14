@@ -3,6 +3,8 @@ package ar.edu.unq.po2.supermercadotp4Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.supermercadotp4.ProductoPrimeraNecesidad;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ProductoPrimeraNecesidadTest {
@@ -11,7 +13,7 @@ public class ProductoPrimeraNecesidadTest {
 	
 	@BeforeEach
 	public void setUp() {
-		leche = new ProductoPrimeraNecesidad("Leche", 8d, false);
+		leche = new ProductoPrimeraNecesidad("Leche", 8d, false, 20);
 	}
 	
 	@Test
