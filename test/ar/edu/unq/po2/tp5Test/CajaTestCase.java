@@ -50,4 +50,11 @@ public class CajaTestCase {
 		caja1.addProducto(producto3);
 		assertEquals(caja1.getTotal(), 1260);
 	}
+	
+	@Test
+	public void cajaConProductoCooperativoYReduccionDeStock() {
+		caja1.addProducto(producto3);
+		assertEquals(caja1.getTotal(), 1260);
+		assertEquals(producto3.getStock(), 49);
+	}
 }

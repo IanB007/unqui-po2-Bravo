@@ -13,6 +13,7 @@ public class Caja {
 	
 	public void addProducto(Producto producto) {
 		productos.add(producto);
+		producto.reducirStock();
 	}
 	
 	public double getTotal() {

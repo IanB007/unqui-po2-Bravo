@@ -19,5 +19,9 @@ public class Producto {
 	public int getStock() {
 		return stock;
 	}
+	
+	public void reducirStock() {
+		this.stock--;
+	}
 
 }
