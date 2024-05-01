@@ -8,6 +8,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import ar.edu.unq.po2.tp5.Caja;
+import ar.edu.unq.po2.tp5.Factura;
+import ar.edu.unq.po2.tp5.FacturaImpuesto;
+import ar.edu.unq.po2.tp5.FacturaServicio;
 import ar.edu.unq.po2.tp5.Producto;
 import ar.edu.unq.po2.tp5.ProductoCooperativa;
 
@@ -17,6 +20,8 @@ public class CajaTestCase {
 	private Producto producto1;
 	private Producto producto2;
 	private ProductoCooperativa producto3;
+	private Factura facturaServicio;
+	private Factura facturaImpuesto;
 	
 	@BeforeEach
 	public void setUp() {
@@ -25,6 +30,8 @@ public class CajaTestCase {
 		producto2 = new Producto("Fideos", 1750, 45);
 		producto3 = new ProductoCooperativa("Leche", 1400, 50);
 		caja1 = new Caja();
+		facturaServicio = new FacturaServicio("Game pass", 7000, 2);
+		facturaImpuesto = new FacturaImpuesto("Luz", 5000, 18);
 	}
 	
 	@Test
@@ -57,4 +64,31 @@ public class CajaTestCase {
 		assertEquals(caja1.getTotal(), 1260);
 		assertEquals(producto3.getStock(), 49);
 	}
+	
+	@Test
+	public void cajaConServicio(){
+		caja1.addFactura(facturaServicio);
+		assertEquals(caja1.getTotal(), 14000);
+	}
+	
+	@Test
+	public void cajaConServicios() {
+		caja1.addFactura(facturaServicio);
+		caja1.addFactura(facturaServicio);
+		assertEquals(caja1.getTotal(), 28000);
+	}
+	
+	@Test
+	public void cajaConImpuesto(){
+		caja1.addFactura(facturaImpuesto);
+		assertEquals(caja1.getTotal(), 900);
+	}
+	
+	@Test
+	public void registrarPago(){
+		caja1.addFactura(facturaImpuesto);
+		caja1.registrarPago(facturaImpuesto);
+		assertEquals(caja1.estaPagada(facturaImpuesto), true);
+	}
+	
 }
