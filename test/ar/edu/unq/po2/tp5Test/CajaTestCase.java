@@ -7,12 +7,14 @@ import java.util.LinkedList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import ar.edu.unq.po2.tp5.Agencia;
 import ar.edu.unq.po2.tp5.Caja;
 import ar.edu.unq.po2.tp5.Factura;
 import ar.edu.unq.po2.tp5.FacturaImpuesto;
 import ar.edu.unq.po2.tp5.FacturaServicio;
 import ar.edu.unq.po2.tp5.Producto;
 import ar.edu.unq.po2.tp5.ProductoCooperativa;
+import static org.mockito.Mockito.*;
 
 public class CajaTestCase {
 
@@ -22,6 +24,23 @@ public class CajaTestCase {
 	private ProductoCooperativa producto3;
 	private Factura facturaServicio;
 	private Factura facturaImpuesto;
+	private Agencia agencia1;
+	
+	
+	/*
+	 * CON MOCK:
+	 * caja1 = mock(Caja.class);
+	facturaServicio = new FacturaServicio("Game pass", 7000, 2);
+	facturaImpuesto = new FacturaImpuesto("Luz", 5000, 18);
+	}
+
+	@Test
+	public void cajaSinProductos() {
+	when(caja1.getMontoTotal()).thenReturn(80000.0);
+	assertEquals(caja1.getMontoTotal(), 80000.0);
+	 * 
+	 * */
+	
 	
 	@BeforeEach
 	public void setUp() {
@@ -29,7 +48,8 @@ public class CajaTestCase {
 		producto1 = new Producto("Dulce de leche", 2000, 28);
 		producto2 = new Producto("Fideos", 1750, 45);
 		producto3 = new ProductoCooperativa("Leche", 1400, 50);
-		caja1 = new Caja();
+		agencia1 = mock(Agencia.class); //mock
+		caja1 = new Caja(agencia1);
 		facturaServicio = new FacturaServicio("Game pass", 7000, 2);
 		facturaImpuesto = new FacturaImpuesto("Luz", 5000, 18);
 	}
@@ -87,8 +107,9 @@ public class CajaTestCase {
 	@Test
 	public void registrarPago(){
 		caja1.addFactura(facturaImpuesto);
-		caja1.registrarPago(facturaImpuesto);
-		assertEquals(caja1.estaPagada(facturaImpuesto), true);
+		caja1.notificarAgencia(facturaImpuesto);
+		verify(agencia1).registrarPago(facturaImpuesto); //por mock.
+		//assertEquals(caja1.notificarAgencia(facturaImpuesto), true);
 	}
 	
 }
