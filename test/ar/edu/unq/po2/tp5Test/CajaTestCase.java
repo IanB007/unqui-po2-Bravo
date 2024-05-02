@@ -36,8 +36,10 @@ public class CajaTestCase {
 
 	@Test
 	public void cajaSinProductos() {
-	when(caja1.getMontoTotal()).thenReturn(80000.0);
-	assertEquals(caja1.getMontoTotal(), 80000.0);
+		EN CASO DE NO TENER LOS METODOS IMPLEMENTADOS TODAVIA:
+		when(caja1.getMontoTotal()).thenReturn(80000.0);
+		assertEquals(caja1.getMontoTotal(), 80000.0);
+	 }
 	 * 
 	 * */
 	
@@ -48,8 +50,8 @@ public class CajaTestCase {
 		producto1 = new Producto("Dulce de leche", 2000, 28);
 		producto2 = new Producto("Fideos", 1750, 45);
 		producto3 = new ProductoCooperativa("Leche", 1400, 50);
-		agencia1 = mock(Agencia.class); //mock
-		caja1 = new Caja(agencia1);
+		agencia1 = mock(Agencia.class); //mock, crea un doble.
+		caja1 = new Caja(agencia1); //Le doy la agencia creada, el doble creado por mock.
 		facturaServicio = new FacturaServicio("Game pass", 7000, 2);
 		facturaImpuesto = new FacturaImpuesto("Luz", 5000, 18);
 	}
@@ -108,7 +110,7 @@ public class CajaTestCase {
 	public void registrarPago(){
 		caja1.addFactura(facturaImpuesto);
 		caja1.notificarAgencia(facturaImpuesto);
-		verify(agencia1).registrarPago(facturaImpuesto); //por mock.
+		verify(agencia1).registrarPago(facturaImpuesto); //por mock, verifico ya que no devuelve valor.
 		//assertEquals(caja1.notificarAgencia(facturaImpuesto), true);
 	}
 	
