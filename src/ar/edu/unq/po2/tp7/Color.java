@@ -16,4 +16,16 @@ public enum Color {
 		this.nivelDeRiesgo = nivelDeRiesgo;
 		this.siguienteColor = siguienteColor;
 	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public String getRiesgo() {
+		return nivelDeRiesgo;
+	}
+	
+	public String getSiguienteColor() {
+		return siguienteColor;
+	}
 }
