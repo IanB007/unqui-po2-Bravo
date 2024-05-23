@@ -2,6 +2,7 @@ package ar.edu.unq.po2.tp7Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 //import java.nio.file.DirectoryStream.Filter;
 import java.time.Duration;
@@ -11,6 +12,7 @@ import java.util.Arrays;
 //import java.util.Iterator;
 //import java.util.List;
 //import java.util.stream.Stream;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,8 +52,15 @@ public class MunicipioTestCase {
 		//List<ActividadSemanal> actividades = Arrays.asList(actividad1, actividad2, actividad3);
 		// Filtrar actividades de FUTBOL
 		//Stream<ActividadSemanal> streamActividades = actividades.stream().filter(actividad -> actividad.esDeporte(Deporte.FUTBOL));
-		
 		//assertTrue(streamActividades.allMatch(actividad -> actividad.getDeporte() == Deporte.FUTBOL));
-
+	}
+	
+	@Test
+	public void actividadesPorComplejidad() {
+		/*for (ActividadSemanal actividad : municipioDeBerazategui.getActividadesDeFutbol()){
+			assertEquals(actividad.getDeporte().getComplejidad(), 2);
+		}*/
+		Stream <ActividadSemanal> stream = municipioDeBerazategui.getActividadesDeComplejidad(2).stream();
+		assertTrue(stream.allMatch(actividad -> (actividad.getDeporte()).getComplejidad() == 2));
 	}
 }

@@ -42,4 +42,5 @@ public class ActividadSemanal {
 		return "Deporte: " + this.getDeporte() + ". Dia: " + this.dia + " A LAS: " + this.hora + ". Duración: " + horas + " hora(s)";
 	}
 	
+
 }

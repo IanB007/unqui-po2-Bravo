@@ -9,4 +9,8 @@ public enum Deporte {
 	Deporte(int complejidad){
 		this.complejidad = complejidad;
 	}
+	
+	public int getComplejidad() {
+		return complejidad;
+	}
 }
