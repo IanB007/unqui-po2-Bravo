@@ -41,6 +41,10 @@ public class ActividadSemanal {
 		int horas = (int) duracion.toHours();
 		return "Deporte: " + this.getDeporte() + ". Dia: " + this.dia + " A LAS: " + this.hora + ". Duración: " + horas + " hora(s)";
 	}
+
+	public Long ObtenerHorasDeDeporte() {
+		return duracion.toHours();
+	}
 	
 
 }

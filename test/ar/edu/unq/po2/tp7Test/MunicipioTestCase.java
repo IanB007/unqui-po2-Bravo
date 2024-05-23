@@ -63,4 +63,11 @@ public class MunicipioTestCase {
 		Stream <ActividadSemanal> stream = municipioDeBerazategui.getActividadesDeComplejidad(2).stream();
 		assertTrue(stream.allMatch(actividad -> (actividad.getDeporte()).getComplejidad() == 2));
 	}
+	
+	@Test
+	public void cantHorasSemanalesDelMunicipio() {
+		assertEquals(municipioDeBerazategui.getCantHorasTotalesDeActividadesSemanales(), 6);
+		System.out.println(municipioDeBerazategui.getCantHorasTotalesDeActividadesSemanales());
+	}
+	
 }
