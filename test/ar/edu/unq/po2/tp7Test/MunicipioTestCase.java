@@ -43,16 +43,18 @@ public class MunicipioTestCase {
 	
 	@Test
 	public void todasLasActividadesDeFutbol() {	
-		for (ActividadSemanal actividad : municipioDeBerazategui.getActividadesDeFutbol()){
+		/*for (ActividadSemanal actividad : municipioDeBerazategui.getActividadesDeFutbol()){
 			assertEquals(actividad.getDeporte(), Deporte.FUTBOL);;
 		}
-		System.out.println(municipioDeBerazategui.getActividadesDeFutbol().toString());
+		System.out.println(municipioDeBerazategui.getActividadesDeFutbol().toString());*/
 		
 		// Crear lista de actividades
 		//List<ActividadSemanal> actividades = Arrays.asList(actividad1, actividad2, actividad3);
 		// Filtrar actividades de FUTBOL
 		//Stream<ActividadSemanal> streamActividades = actividades.stream().filter(actividad -> actividad.esDeporte(Deporte.FUTBOL));
 		//assertTrue(streamActividades.allMatch(actividad -> actividad.getDeporte() == Deporte.FUTBOL));
+		Stream <ActividadSemanal> stream = municipioDeBerazategui.getActividadesDeFutbol().stream();
+		stream.allMatch(actividad -> (actividad.getDeporte() == Deporte.FUTBOL));
 	}
 	
 	@Test

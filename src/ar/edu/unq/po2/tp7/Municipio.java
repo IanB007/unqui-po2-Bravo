@@ -25,21 +25,15 @@ public class Municipio {
 		return stream.filter(actividadSemanal -> actividadSemanal.esDeporte(Deporte.FUTBOL)).toList();
 	}
 
-	public List<ActividadSemanal> getActividades() {
-		return actividadesSemanales;
-	}
-
 	public List<ActividadSemanal> getActividadesDeComplejidad(int Complejidad) {
 		Stream<ActividadSemanal> stream = actividadesSemanales.stream();
 		return stream.filter(actividadSemanal -> actividadSemanal.getDeporte().getComplejidad() == Complejidad).toList();
 	}
 
-	public int getCantHorasTotalesDeActividadesSemanales() {
-		int horasTotalesDeActividades = 0;
-		for(ActividadSemanal actividad : actividadesSemanales) {
-			horasTotalesDeActividades += actividad.ObtenerHorasDeDeporte();
-		}
-		return horasTotalesDeActividades;
-	}
-
+	 public long getCantHorasTotalesDeActividadesSemanales() {
+	        return actividadesSemanales.stream()
+	                                  .mapToLong(ActividadSemanal::ObtenerHorasDeDeporte)
+	                                  .sum();
+	 }
 }
+	
