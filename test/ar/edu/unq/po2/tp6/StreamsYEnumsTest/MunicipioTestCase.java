@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp7Test;
+package ar.edu.unq.po2.tp6.StreamsYEnumsTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 //import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,10 +17,10 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tp7.ActividadSemanal;
-import ar.edu.unq.po2.tp7.Deporte;
-import ar.edu.unq.po2.tp7.DiaDeLaSemana;
-import ar.edu.unq.po2.tp7.Municipio;
+import ar.edu.unq.po2.tp6.StreamsYEnums.ActividadSemanal;
+import ar.edu.unq.po2.tp6.StreamsYEnums.Deporte;
+import ar.edu.unq.po2.tp6.StreamsYEnums.DiaDeLaSemana;
+import ar.edu.unq.po2.tp6.StreamsYEnums.Municipio;
 
 public class MunicipioTestCase {
 

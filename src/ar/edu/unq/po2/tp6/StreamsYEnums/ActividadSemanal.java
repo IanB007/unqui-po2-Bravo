@@ -1,4 +1,4 @@
-package ar.edu.unq.po2.tp7;
+package ar.edu.unq.po2.tp6.StreamsYEnums;
 
 import java.time.Duration;
 import java.time.LocalTime;

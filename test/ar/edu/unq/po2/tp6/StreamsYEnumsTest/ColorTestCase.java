@@ -1,10 +1,10 @@
-package ar.edu.unq.po2.tp7Test;
+package ar.edu.unq.po2.tp6.StreamsYEnumsTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 
-import ar.edu.unq.po2.tp7.Color;
+import ar.edu.unq.po2.tp6.StreamsYEnums.Color;
 
 public class ColorTestCase {
 	
