@@ -29,6 +29,15 @@ public class PokerStatusTestCase {
 		assertFalse(pokerStatus.esPoker("5P","4C","4C","5T","QT"));
 	}
 	
+	@Test
+	public void verificarSiEsColorTrue() {
+		assertTrue(pokerStatus.esColor("5P","4P","4P","QP","10P"));
+	}
+	
+	@Test
+	public void verificarSiEsColorFalse() {
+		assertFalse(pokerStatus.esColor("5P","4P","4C","QP","10D"));
+	}
 	
 	//TEARDOWN
     @AfterEach
