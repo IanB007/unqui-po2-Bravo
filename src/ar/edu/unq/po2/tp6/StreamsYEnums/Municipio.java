@@ -1,7 +1,7 @@
 package ar.edu.unq.po2.tp6.StreamsYEnums;
 
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 

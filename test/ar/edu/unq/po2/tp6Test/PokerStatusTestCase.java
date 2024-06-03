@@ -4,11 +4,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.*;
 
+import as.edu.unq.po2.tp6.Doubles.Carta;
 import as.edu.unq.po2.tp6.Doubles.PokerStatus;
 
 public class PokerStatusTestCase {
 
 	PokerStatus pokerStatus;
+	Carta carta1;
+	Carta carta2;
+	Carta carta3;
+	Carta carta4;
+	Carta carta5;
 	
 	
 	//SET UP
@@ -20,23 +26,77 @@ public class PokerStatusTestCase {
 	//EXCERCISE Y VERIFY
 	@Test
 	public void verificarSiEsPokerTrue() {
-		assertTrue(pokerStatus.esPoker("4C","JP","4C","4T","4T"));
+		carta1 = new Carta("4C");
+		carta2 = new Carta("JP");
+		carta3 = new Carta("4C");
+		carta4 = new Carta("4T");
+		carta5 = new Carta("4T");
+		assertTrue(pokerStatus.esPoker(carta1,carta2,carta3,carta4,carta5));
 	}
 	
 	//EXCERCISE Y VERIFY
 	@Test
 	public void verificarSiEsPokerFalse() {
-		assertFalse(pokerStatus.esPoker("5P","4C","4C","5T","QT"));
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4C");
+		carta3 = new Carta("4C");
+		carta4 = new Carta("5T");
+		carta5 = new Carta("QT");
+		assertFalse(pokerStatus.esPoker(carta1,carta2,carta3,carta4,carta5));
 	}
 	
 	@Test
 	public void verificarSiEsColorTrue() {
-		assertTrue(pokerStatus.esColor("5P","4P","4P","QP","10P"));
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		carta3 = new Carta("4P");
+		carta4 = new Carta("QP");
+		carta5 = new Carta("10P");
+		assertTrue(pokerStatus.esColor(carta1,carta2,carta3,carta4,carta5));
 	}
 	
 	@Test
 	public void verificarSiEsColorFalse() {
-		assertFalse(pokerStatus.esColor("5P","4P","4C","QP","10D"));
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		carta3 = new Carta("4C");
+		carta4 = new Carta("QP");
+		carta5 = new Carta("10D");
+		assertFalse(pokerStatus.esColor(carta1,carta2,carta3,carta4,carta5));
+	}
+	
+	@Test
+	public void verificarSiEsTrioTrue() {
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		carta3 = new Carta("4C");
+		carta4 = new Carta("QP");
+		carta5 = new Carta("4D");
+		assertTrue(pokerStatus.esTrio(carta1,carta2,carta3,carta4,carta5));
+	}
+	
+	@Test
+	public void verificarSiEsTrioFalse() {
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		carta3 = new Carta("4C");
+		carta4 = new Carta("4P");
+		carta5 = new Carta("4D");
+		assertFalse(pokerStatus.esTrio(carta1,carta2,carta3,carta4,carta5));
+	}
+	
+	@Test
+	public void verificarSiElValorEsMasGrandeQueTrue() {
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		assertTrue(pokerStatus.esMayorQue(carta1,carta2));
+	}
+	
+	@Test
+	public void verificarSiElValorEsMasGrandeQueFalse() {
+		carta1 = new Carta("5P");
+		carta2 = new Carta("4P");
+		assertFalse(pokerStatus.esMayorQue(carta2,carta1));
 	}
 	
 	//TEARDOWN
