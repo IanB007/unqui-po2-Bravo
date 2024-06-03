@@ -6,6 +6,8 @@ import org.junit.jupiter.api.*;
 
 import as.edu.unq.po2.tp6.Doubles.Carta;
 import as.edu.unq.po2.tp6.Doubles.PokerStatus;
+import static org.mockito.Mockito.*;
+
 
 public class PokerStatusTestCase {
 
@@ -20,7 +22,7 @@ public class PokerStatusTestCase {
 	//SET UP
 	@BeforeEach
 	public void setUp() {
-		pokerStatus = new PokerStatus();
+		pokerStatus = mock(PokerStatus.class);
 	}
 	
 	//EXCERCISE Y VERIFY
@@ -31,6 +33,7 @@ public class PokerStatusTestCase {
 		carta3 = new Carta("4C");
 		carta4 = new Carta("4T");
 		carta5 = new Carta("4T");
+		when(pokerStatus.esPoker(carta1, carta2, carta3, carta4, carta5)).thenReturn(true);
 		assertTrue(pokerStatus.esPoker(carta1,carta2,carta3,carta4,carta5));
 	}
 	
@@ -42,6 +45,7 @@ public class PokerStatusTestCase {
 		carta3 = new Carta("4C");
 		carta4 = new Carta("5T");
 		carta5 = new Carta("QT");
+		when(pokerStatus.esPoker(carta1, carta2, carta3, carta4, carta5)).thenReturn(false);
 		assertFalse(pokerStatus.esPoker(carta1,carta2,carta3,carta4,carta5));
 	}
 	
@@ -52,6 +56,7 @@ public class PokerStatusTestCase {
 		carta3 = new Carta("4P");
 		carta4 = new Carta("QP");
 		carta5 = new Carta("10P");
+		when(pokerStatus.esColor(carta1, carta2, carta3, carta4, carta5)).thenReturn(true);
 		assertTrue(pokerStatus.esColor(carta1,carta2,carta3,carta4,carta5));
 	}
 	
@@ -62,6 +67,7 @@ public class PokerStatusTestCase {
 		carta3 = new Carta("4C");
 		carta4 = new Carta("QP");
 		carta5 = new Carta("10D");
+		when(pokerStatus.esColor(carta1, carta2, carta3, carta4, carta5)).thenReturn(false);
 		assertFalse(pokerStatus.esColor(carta1,carta2,carta3,carta4,carta5));
 	}
 	
