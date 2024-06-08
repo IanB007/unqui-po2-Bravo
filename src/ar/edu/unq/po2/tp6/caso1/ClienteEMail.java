@@ -12,7 +12,7 @@ public class ClienteEMail {
 	 private ArrayList<Correo> borrados;
 	
 	//Crea el mail del cliente.
-	public ClienteEMail(ServidorPop servidor, String nombreUsuario, String pass){
+	public ClienteEMail(IServidor servidor, String nombreUsuario, String pass){
 		this.servidor=servidor;
 		this.nombreUsuario=nombreUsuario;
 		this.passusuario=pass;
